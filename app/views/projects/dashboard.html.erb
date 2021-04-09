@@ -1,0 +1,34 @@
+<div class="container">
+  <form class="form-inline">
+    <select name="state" id="state">
+        <option value="proposal">Proposal</option>
+        <option value="in progress">In Progress</option>
+        <option value="finished">Finished</option>
+      </select>
+    <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
+  </form>
+  <p> <%= link_to "Clear filter", projects_dashboard_path %></p>
+</div>
+
+<div class="container">
+  <h1>Projects</h1>
+  <table class="table">
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th>State</th>
+    </tr>
+    <% @projects.each do |project| %>
+      <tr>
+        <td><%= project.name %></td>
+        <td><%= project.description %></td>
+        <td><%= project.start_date %></td>
+        <td><%= project.end_date %></td>
+        <td><%= project.state %></td>
+      </tr>
+    <% end %>
+  </table>
+  <p>Create a new project <%= link_to "here", projects_new_path %>!</p>
+</div>

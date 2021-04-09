@@ -1,0 +1,19 @@
+<div class="container">
+  <% if @project.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@project.errors.count, "error") %>
+      prohibited this project from being created:
+      </h2>
+      <ul>
+        <% @project.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+      <p><%= link_to 'Try again', projects_new_path %></p>
+    </div>
+  <% else%>
+    <h1> Your project was created successfully! </h1>
+    <p>Check your recently created project <%= link_to 'here', projects_dashboard_path %></p>
+  <% end %>
+</div>
